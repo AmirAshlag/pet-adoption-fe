@@ -1,0 +1,89 @@
+.pet {
+    background-color: lightskyblue;
+    font-size: larger;
+    width: 45%;
+    margin-left: 2.75%;
+    margin-bottom: 25px;
+    height: fit-content;
+    padding: 15px;
+    box-sizing: content-box;
+    box-shadow: 2px 4px #000000;
+    margin-top: 50px;
+    margin-left: 26%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.lower-bio{
+    border-top: 1px solid rgb(0, 0, 0, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+}
+
+.upper-bio{
+    padding-bottom: 5px;
+}
+
+.pet-bio{
+    margin-top: 5px;
+}
+
+.pet-body {
+    background: url('https://st3.depositphotos.com/11498520/18356/v/600/depositphotos_183562684-stock-illustration-paw-seamless-pattern-dog-paw.jpg');
+    max-height: fit-content;
+    min-height: 99vh;
+}
+
+.adopt-button {
+  background-color:aliceblue;
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 32px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.foster-button{
+  background-color:aliceblue;
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 32px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 18px;
+}
+

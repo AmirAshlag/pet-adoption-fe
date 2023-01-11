@@ -1,0 +1,56 @@
+.login-modal {
+  width: 30%;
+  height: fit-content;
+  background-color: rgba(10, 10, 10, 0.75);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: content-box;
+  color: aliceblue;
+  font-size: 20px;
+  position: absolute;
+  right: 10%;
+  top: 8%;
+  z-index: 3;
+}
+
+
+.Modal-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modal-button {
+  background-color: lightskyblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.right{
+    margin-left: 8px;
+}

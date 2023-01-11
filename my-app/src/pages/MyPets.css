@@ -1,0 +1,38 @@
+.mypets-container{
+    background: url('https://st3.depositphotos.com/11498520/18356/v/600/depositphotos_183562684-stock-illustration-paw-seamless-pattern-dog-paw.jpg');
+    max-height: fit-content;
+    min-height: 98vh;
+}
+
+.my-pets-title {
+    margin-left: 45%;
+    background-color: lightskyblue;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: underline;
+    margin-top: 30px;
+}
+
+.no-pets-owned{
+    margin-left: 42.5%;
+    margin-top: 30px;
+    background-color: lightskyblue;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.Saved-pets-title {
+    margin-left: 43.5%;
+    background-color: lightskyblue;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: underline;
+    margin-top: 30px;
+}
+
+.Saved-pets-title, .my-pets-title:hover{
+    cursor: grab;
+}

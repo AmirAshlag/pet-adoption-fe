@@ -1,0 +1,27 @@
+.signup-modal {
+  width: 30%;
+  height: fit-content;
+  background-color: rgba(10, 10, 10, 0.75);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: content-box;
+  color: aliceblue;
+  font-size: 20px;
+  position: absolute;
+  right: 10%;
+  top: 8%;
+  z-index: 3;
+}
+
+.emptyError {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 10px 10px 10px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+.emptyError {
+  color: #d8000c;
+  background-color: #ffbaba;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
+}

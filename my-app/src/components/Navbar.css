@@ -1,0 +1,50 @@
+.nav-container {
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  list-style: none;
+  position: relative;
+  background-color: rgb(240, 248, 255, 0.8);
+}
+
+.nav-item {
+  margin-left: 40px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(47, 44, 44);
+}
+
+.profile-link-img {
+  width: 40px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+
+.home-img {
+  width: 20px;
+  margin-left: 8px;
+}
+
+.nav-container2 {
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  list-style: none;
+  position: relative;
+  background-color: lightskyblue;
+}
+
+.logout {
+  /* margin-left: 33.5%; */
+  font-size: large;
+  font-weight: bold;
+  position: absolute;
+  right: 90px;
+}
+
+.logout:hover{
+  cursor: grab;
+  text-decoration: underline;
+}

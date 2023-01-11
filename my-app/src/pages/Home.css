@@ -1,0 +1,25 @@
+.home-background {
+  position: relative;
+}
+
+.home-welcome {
+  width: 30%;
+  height: 200px;
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  background-color: rgb(240, 248, 255, 0.8);
+  font-size: 2rem;
+  padding: 20px;
+  box-sizing: content-box;
+  border-radius: 10px;
+}
+
+.home-body {
+  background-image: url("https://cdn.shopify.com/s/files/1/0272/6838/2822/files/Pet-Naturals.jpg?v=1650424379");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  height: 98.2vh;
+  overflow: hidden;
+}

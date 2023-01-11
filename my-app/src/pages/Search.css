@@ -1,0 +1,40 @@
+.toggele {
+  margin-left: 39%;
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.toggele-btn {
+  width: 120px;
+  background-color:lightgray;
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  box-sizing: content-box;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.search-container{
+    background: url('https://st3.depositphotos.com/11498520/18356/v/600/depositphotos_183562684-stock-illustration-paw-seamless-pattern-dog-paw.jpg');
+    max-height: fit-content;
+    min-height: 98vh;
+}

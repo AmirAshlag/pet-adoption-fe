@@ -1,0 +1,57 @@
+.profile-settings {
+  width: 30%;
+  height: fit-content;
+  background-color: rgba(10, 10, 10, 0.8);
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  box-sizing: content-box;
+  color: aliceblue;
+  font-size: 20px;
+  left: 32%;
+  position: absolute;
+  top: 170px;
+}
+
+.settings-container {
+  height: 99vh;
+  background-image: url("https://thumbs.dreamstime.com/b/settings-gears-icon-abstract-blue-background-illustration-dark-digital-texture-grunge-elegant-paint-modern-design-concept-167074493.jpg");
+}
+
+.info,
+.success,
+.warning,
+.error,
+.validation {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+.info {
+  color: #00529b;
+  background-color: #bde5f8;
+  background-image: url("https://i.imgur.com/ilgqWuX.png");
+}
+.success {
+  color: #4f8a10;
+  background-color: #dff2bf;
+  background-image: url("https://i.imgur.com/Q9BGTuy.png");
+}
+.warning {
+  color: #9f6000;
+  background-color: #feefb3;
+  background-image: url("https://i.imgur.com/Z8q7ww7.png");
+}
+.error {
+  color: #d8000c;
+  background-color: #ffbaba;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
+}
+.validation {
+  color: #d63301;
+  background-color: #ffccba;
+  background-image: url("https://i.imgur.com/GnyDvKN.png");
+}

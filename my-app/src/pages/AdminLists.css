@@ -1,0 +1,13 @@
+.admin-body {
+  background: url("https://media.istockphoto.com/id/1051267914/photo/dark-blue-grungy-canvas-background-or-texture-with-dark-vignette-borders.jpg?s=170667a&w=0&k=20&c=TRNznA9YLXqJ5dr66VLofSMc59mtK17a-ZYwX-LF29M=");
+  height: 98vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.lists-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}

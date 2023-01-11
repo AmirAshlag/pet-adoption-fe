@@ -1,0 +1,34 @@
+.search-results-container{
+    width: 93%;
+    height: fit-content;
+    /* background-color: red; */
+    margin-top: 30px;
+    margin-left: 2.95%;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.result {
+    background-color: lightskyblue;
+    font-size: larger;
+    width: 45%;
+    margin-left: 2.75%;
+    margin-bottom: 25px;
+    height: 500px;
+    padding: 10px;
+    box-sizing: content-box;
+    box-shadow: 2px 4px #000000;
+    border-radius: 5px;
+}
+
+.search-bio{
+    margin-top: 10px;
+}
+
+.pet-image{
+    width: 100%;
+    margin-bottom: 5px;
+    height: 400px;
+}

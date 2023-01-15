@@ -111,7 +111,7 @@ const PetPage = () => {
     }
   }
 
-  console.log(saved);
+  // console.log(saved);
   return (
     <div className="pet-body">
       {currentToken ? (
@@ -184,7 +184,12 @@ const PetPage = () => {
             </button>
           )}
           {currentPet.owner != currentToken.id && saved && (
-            <button className="foster-button" onClick={()=>{UnSave(true)}}>
+            <button
+              className="foster-button"
+              onClick={() => {
+                UnSave(true);
+              }}
+            >
               Unsave
             </button>
           )}

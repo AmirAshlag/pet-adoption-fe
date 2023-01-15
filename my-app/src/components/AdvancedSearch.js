@@ -1,9 +1,10 @@
 import "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/components/AdvancedSearch.css";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MainContext } from "../App";
 import axios from "axios";
 import SearchResults from "./SearchResults";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = ({}) => {
   const [isAdopted, setIsAdopted] = useState("");
   const [hypoallergenic, setHypoallergenic] = useState("");
   const [weight, setWeight] = useState("");
@@ -13,9 +14,11 @@ const AdvancedSearch = () => {
   const [searchList, setSearchList] = useState("");
   const [loader, setLoader] = useState(false);
 
+  console.log("Advance");
+
   function clickHandler() {
     setLoader(true);
-    setSearchList([]);
+    // setSearchList([]);
     axios
       .get(
         `http://localhost:8080/search/animal?type=${type}&color=${color}&adopted=${isAdopted}&hypoallergenic=${hypoallergenic}&height=${height}&weight=${weight}`
@@ -24,9 +27,17 @@ const AdvancedSearch = () => {
         if (result.data.length == 0) {
           setLoader(false);
         }
+        localStorage.setItem("list", JSON.stringify(result.data));
         setSearchList(result.data);
       });
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("list")) {
+      const list = JSON.parse(localStorage.getItem("list"));
+      setSearchList(list);
+    }
+  }, []);
 
   return (
     <div>

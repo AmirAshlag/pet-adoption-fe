@@ -1,23 +1,34 @@
 import "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/components/BasicSearch.css";
 // import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import SearchResults from "./SearchResults";
+import { MainContext } from "../App";
 
 const BasicSearch = () => {
-  const [type, setType] = useState("")
-  const [searchList, setSearchList] = useState("")
+  const [type, setType] = useState("");
+  const [searchList, setSearchList] = useState("");
   const [loader, setLoader] = useState(false);
 
-  function clickHandker(){
-    setLoader(true)
-    axios.get(`http://localhost:8080/search/pet?type=${type}`).then((res)=>{
+  console.log("basic");
+
+  function clickHandker() {
+    setLoader(true);
+    axios.get(`http://localhost:8080/search/pet?type=${type}`).then((res) => {
       if (res.data.length == 0) {
         setLoader(false);
       }
       setSearchList(res.data);
-    })
+      localStorage.setItem("list", JSON.stringify(res.data));
+    });
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("list")) {
+      const list = JSON.parse(localStorage.getItem("list"));
+      setSearchList(list);
+    }
+  }, []);
 
   return (
     <div>
@@ -42,6 +53,6 @@ const BasicSearch = () => {
       <SearchResults searchList={searchList} setLoader={setLoader} />
     </div>
   );
-}
+};
 
-export default BasicSearch
+export default BasicSearch;

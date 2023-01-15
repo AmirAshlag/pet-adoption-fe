@@ -35,7 +35,9 @@ const Navbar = (props) => {
             />
           </Link>
         </li>
-        <li>
+        <li onClick={()=>{
+          localStorage.removeItem("list");
+        }}>
           <Link className="nav-item" to="/search">
             Search
             <img

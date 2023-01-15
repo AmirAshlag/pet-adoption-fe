@@ -18,6 +18,7 @@ const LogOutModal = ({ setModal }) => {
         withCredentials: true,
       })
       .then(() => {
+        localStorage.clear()
         setCurrentToken("")
         setModal(false);
         navigate("/");

@@ -33,7 +33,7 @@ const SearchResults = (props) => {
       } 
   }, [searchList]);
 
-  // console.log(searchList);
+
   return (
     <div className="search-results-container">
       {

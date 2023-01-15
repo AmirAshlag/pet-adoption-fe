@@ -30,6 +30,7 @@ const LoginModal = () => {
           return false;
         } else {
           console.log(res.data.token)
+          localStorage.setItem("basic", true)
           setCurrentToken(res.data.token);
           navigate("/home");
         }

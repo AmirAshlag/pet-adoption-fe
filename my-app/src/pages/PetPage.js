@@ -21,7 +21,6 @@ const PetPage = () => {
   const location = useLocation();
   const pathname = location.pathname;
   const id = pathname.split("/")[2];
-  // console.log(!currentToken);
 
   useEffect(() => {
     let pet;
@@ -32,30 +31,46 @@ const PetPage = () => {
         return res.data[0];
       })
       .then(() => {
-        getDownloadURL(ref(storage, `${pet.id}`)).then((url) => {
-          pet = { ...pet, image: url };
-          setCurrentPet(pet);
-        });
-        axios
-          .get("http://localhost:8080/user/check", { withCredentials: true })
-          .then((res) => {
-            // console.log(res.data.token);
-            setCurrentToken(res.data.token);
-            return res.data.token;
+        getDownloadURL(ref(storage, `${pet.id}`))
+          .then((url) => {
+            pet = { ...pet, image: url };
+            setCurrentPet(pet);
           })
-          .then((res) => {
-            if (res) {
-              axios
-                .get(`http://localhost:8080/pet/checkSaved/${res.id}/${pet.id}`)
-                .then((res) => {
-                  console.log(res.data);
-                  if (res.data.length > 0) {
-                    console.log("hey");
-                    setSaved(true);
-                  }
-                });
-            }
+          .then(() => {
+            axios
+              .get("http://localhost:8080/user/check", {
+                withCredentials: true,
+              })
+              .then((res) => {
+                setCurrentToken(res.data.token);
+                return res.data.token;
+              })
+              .then((res) => {
+                axios
+                  .get(
+                    `http://localhost:8080/pet/checkSaved/${res.id}/${pet.id}`
+                  )
+                  .then((res) => {
+                    console.log(res.data);
+                    if (res.data.length > 0) {
+                      setSaved(true);
+                    }
+                  });
+              });
           });
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/pet/checkSaved/${currentToken.id}/${currentPet.id}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.length > 0) {
+          setSaved(true);
+        }
       });
   }, []);
 
@@ -111,7 +126,7 @@ const PetPage = () => {
     }
   }
 
-  // console.log(saved);
+  console.log(saved);
   return (
     <div className="pet-body">
       {currentToken ? (
@@ -161,7 +176,7 @@ const PetPage = () => {
           {currentPet.bio}
         </div>
         <div className="button-container">
-          {(currentPet.adopted === "not adopted" ||
+          {((currentToken.id && currentPet.adopted === "not adopted") ||
             (currentPet.adopted == "fosterd" &&
               currentPet.owner == currentToken.id)) && (
             <button
@@ -173,16 +188,17 @@ const PetPage = () => {
               Adopt
             </button>
           )}
-          {currentPet.adopted == "not adopted" && (
-            <button
-              className="foster-button"
-              onClick={() => {
-                AdoptOrFoster("fosterd");
-              }}
-            >
-              Foster
-            </button>
-          )}
+          {currentPet.adopted == "not adopted" &&
+            currentToken.id != undefined && (
+              <button
+                className="foster-button"
+                onClick={() => {
+                  AdoptOrFoster("fosterd");
+                }}
+              >
+                Foster
+              </button>
+            )}
           {currentPet.owner != currentToken.id && saved && (
             <button
               className="foster-button"

@@ -9,6 +9,7 @@
     padding: 10px;
     box-sizing: content-box;
     border-radius: 5px;
+    z-index: 100;
 }
 
 .logout-text{

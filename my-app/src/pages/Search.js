@@ -9,7 +9,7 @@ import LoggedOutNav from "../components/LoggedOutNav";
 
 const Search = () => {
   const { currentToken, setCurrentToken } = useContext(MainContext);
-  const [basic, setBasic] = useState("");
+  const [basic, setBasic] = useState(true);
 
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);

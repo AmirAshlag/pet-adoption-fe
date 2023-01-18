@@ -14,7 +14,7 @@ const AdvancedSearch = ({}) => {
   const [searchList, setSearchList] = useState("");
   const [loader, setLoader] = useState(false);
 
-  console.log("Advance");
+
 
   function clickHandler() {
     setLoader(true);

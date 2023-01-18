@@ -13,6 +13,7 @@ const LoggedOut = () => {
   const { setCurrentToken }  = useContext(MainContext)
 
   useEffect(()=>{
+    localStorage.clear()
     axios.get("http://localhost:8080/user/check", {withCredentials: true}).then((res)=>{
       if (res.data.approved == "loggedIn") {
         console.log(res.data.token)

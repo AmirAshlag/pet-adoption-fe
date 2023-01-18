@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/components/Navbar.css";
 import { useContext, useState } from "react";
 import { MainContext } from "../App";
-import axios from "axios";
 import LogOutModal from "./LogOutModal";
+import mysvg from "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/svg/dog.svg";
 
 const Navbar = (props) => {
   const { currentToken } = useContext(MainContext);
@@ -19,7 +19,7 @@ const Navbar = (props) => {
           <Link className="nav-item" to="/mypets">
             My pets
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn_kz7SFtDDwaUobbWpdIOhCrwy7CjR6eOHg&usqp=CAU"
+              src={mysvg}
               className="home-img"
               alt="not available"
             />
@@ -35,9 +35,11 @@ const Navbar = (props) => {
             />
           </Link>
         </li>
-        <li onClick={()=>{
-          localStorage.removeItem("list");
-        }}>
+        <li
+          onClick={() => {
+            localStorage.removeItem("list");
+          }}
+        >
           <Link className="nav-item" to="/search">
             Search
             <img

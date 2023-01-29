@@ -4,6 +4,7 @@ import { useState } from "react";
 import "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/components/UpdatePetModal.css";
 import storage from "../config";
 import { ref, uploadBytes } from "firebase/storage";
+import AdminUsersList from "./AdminUsersList";
 
 const UpdatePetModal = (props) => {
   console.log(props);
@@ -18,6 +19,7 @@ const UpdatePetModal = (props) => {
     id,
     hypoallergenic,
     adopted,
+    owner,
   } = props.data;
   const setModalData = props.setModalData;
   const GetPets = props.GetPets;
@@ -33,6 +35,14 @@ const UpdatePetModal = (props) => {
   const [file2, SetFile] = useState("");
   const [error, setError] = useState(false);
   const [breed2, setBreed] = useState(breed);
+   const [owner2, setOwner] = useState(owner);
+  const [pop, setPop] = useState(false);
+
+  function PopUp() {
+    if (!owner) {
+      setPop(true);
+    }
+  }
 
   function UpdatePet() {
     const newPetList = [
@@ -46,6 +56,11 @@ const UpdatePetModal = (props) => {
       breed2,
       bio2,
     ];
+    if (isAdopted !== "not adopted" && !owner2) {
+      console.log("problem");
+      setError(true);
+      return "error";
+    }
     const updatedPet = {
       hypoallergenic: hypoallergenic2,
       adopted: isAdopted,
@@ -57,6 +72,7 @@ const UpdatePetModal = (props) => {
       breed: breed2,
       bio: bio2,
       id: id,
+      owner: owner2
     };
     for (let item of newPetList) {
       if (item === "") {
@@ -67,18 +83,17 @@ const UpdatePetModal = (props) => {
     console.log(updatedPet);
     axios.put("http://localhost:8080/pet/update", updatedPet).then((res) => {
       const storageRef = ref(storage, `${res.data.id}`);
-      if (!file2){
-        GetPets()
+      if (!file2) {
+        GetPets();
       }
       if (file2) {
-        uploadBytes(storageRef, file2)
-          .then((snapshot) => {
-            console.log({ ...res.data, file: snapshot });
-            GetPets()
-            return { ...res.data, file: snapshot };
-          })
+        uploadBytes(storageRef, file2).then((snapshot) => {
+          console.log({ ...res.data, file: snapshot });
+          GetPets();
+          return { ...res.data, file: snapshot };
+        });
       }
-    })
+    });
 
     setHypoallergenic("");
     setIsAdopted("");
@@ -89,12 +104,15 @@ const UpdatePetModal = (props) => {
     setColor("");
     setBio("");
     setBreed("");
-    SetFile("")
+    SetFile("");
     setError(false);
   }
 
   return (
     <div>
+      {pop && (
+        <AdminUsersList popUp={true} setPop={setPop} setOwner={setOwner} />
+      )}
       <div
         className="add-container2"
         onClick={() => {
@@ -232,7 +250,8 @@ const UpdatePetModal = (props) => {
             defaultChecked={isAdopted == "adopted"}
             onClick={(e) => {
               setIsAdopted(e.target.value);
-              console.log(e.target.value);
+              // console.log(e.target.value);
+              PopUp();
             }}
           />
           <span className="right">Not adopted:</span>
@@ -244,7 +263,8 @@ const UpdatePetModal = (props) => {
             defaultChecked={isAdopted == "not adopted"}
             onClick={(e) => {
               setIsAdopted(e.target.value);
-              console.log(e.target.value);
+              setOwner("")
+              // console.log(e.target.value);
             }}
           />
           <span>Fosterd:</span>
@@ -256,9 +276,11 @@ const UpdatePetModal = (props) => {
             defaultChecked={isAdopted == "fosterd"}
             onClick={(e) => {
               setIsAdopted(e.target.value);
-              console.log(e.target.value);
+              // console.log(e.target.value);
+              PopUp();
             }}
           />
+          <div>owner: {owner2? "owned": "no owner"}</div>
           <label htmlFor="name" className="form__label">
             <b>Adoption status:</b>
           </label>

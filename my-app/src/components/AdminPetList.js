@@ -2,6 +2,7 @@ import "/Users/amirashlag/Desktop/fs-pet-adoption-fe-AmirAshlag/my-app/src/compo
 import { useEffect,useState } from "react";
 import axios from "axios";
 import UpdatePetModal from "./UpdatePetModal";
+import AdminUsersList from "./AdminUsersList";
 
 const AdminPetList = () => {
     const [petList, setPetList] = useState('')

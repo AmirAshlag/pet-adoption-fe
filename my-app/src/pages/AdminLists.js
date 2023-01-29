@@ -8,9 +8,9 @@ const AdminLists = () => {
   return (
     <div className="admin-body">
       <Navbar class={"nav-container2"} />
-      <div className='lists-container'>
+      <div className="lists-container">
         <AdminPetList />
-        <AdminUsersList />
+        <AdminUsersList popUp={false} setPop={()=>{}}/>
       </div>
     </div>
   );

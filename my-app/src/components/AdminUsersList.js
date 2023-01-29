@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import UserModal from "./UserModal";
 
-const AdminUsersList = () => {
+const AdminUsersList = ({ popUp, setPop, setOwner }) => {
   const [userList, setUsersList] = useState("");
   const [ModalData, setModalData] = useState("");
 
@@ -19,7 +19,7 @@ const AdminUsersList = () => {
   }, []);
 
   return (
-    <div className="admin-list2">
+    <div className={popUp ? "admin-list3" : "admin-list2"}>
       {ModalData && (
         <UserModal
           ModalData={ModalData}
@@ -27,7 +27,19 @@ const AdminUsersList = () => {
           GetUsers={GetUsers}
         />
       )}
-      <h1 className="admin-title2">Users</h1>
+      <h1 className={popUp ? "admin-title3" : "admin-title2"}>
+        {popUp ? "Select owner" : "Users"}
+      </h1>
+      {popUp && (
+        <button
+          className="close"
+          onClick={() => {
+            setPop(false);
+          }}
+        >
+          X
+        </button>
+      )}
       <div>
         {userList &&
           userList.map((user) => {
@@ -35,9 +47,16 @@ const AdminUsersList = () => {
               <div
                 key={user.id}
                 className="users-container"
-                onClick={() => {
-                  setModalData(user);
-                }}
+                onClick={
+                  popUp
+                    ? () => {
+                        setOwner(user.id);
+                        setPop(false);
+                      }
+                    : () => {
+                        setModalData(user);
+                      }
+                }
               >
                 <span>
                   <b>First-Name: </b>
